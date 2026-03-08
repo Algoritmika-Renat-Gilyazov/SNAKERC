@@ -1,7 +1,7 @@
 .AddCompLib/
 .vscode/
-What.cs
-TextureImporter.preset
+Assets/Scripts/What.cs
+Assets/Texture2D/TextureImporter.preset
 Assets/csc.rsp
 Library/
 Temp/
