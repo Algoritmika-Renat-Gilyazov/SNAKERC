@@ -1,7 +1,7 @@
 .AddCompLib/
 .vscode/
-Assets/Scripts/What.cs
-Assets/Texture2D/TextureImporter.preset
+What.cs
+TextureImporter.preset
 Assets/csc.rsp
 Library/
 Temp/
@@ -10,3 +10,5 @@ obj/
 build/
 ScreenshotPNG.png
 *.meta
+a.unity
+filename2.png
