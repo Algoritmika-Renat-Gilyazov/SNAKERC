@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Collections;
+
 public class OptionsManager : MonoBehaviour
 {
     [SerializeField]
