@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public GameObject heakthMeter;
 
     [SerializeField]
-    private BaseGameManager gameManager;
+    private GameManager gameManager;
 
     [SerializeField]
     private float mouseSensitivity = 2f;
