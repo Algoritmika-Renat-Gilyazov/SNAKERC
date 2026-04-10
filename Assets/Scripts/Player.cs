@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
         {
             return; 
         }
-        if(hit.transform.tag == "Jumpable" && !isRidding)
+        if(hit.transform.CompareTag("Jumpable") && !isRidding)
         {
             if(jumpForce == defaultJumpForce) // чтобы не делить несколько раз
             {
@@ -177,6 +177,17 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }*/
+
+    void OnTriggerEnter(Collider hit)
+    {
+        Pickup pickup = hit.transform.GetComponent<Pickup>();
+        if (inv != null && pickup != null)
+        {
+            int selectedSlot = inv.selectedSlot; // Используем выбранный слот
+            inv.AddItem(pickup.item, selectedSlot);
+            Destroy(pickup.gameObject); // Удаляем предмет из мира
+        }
+    }
 
     public LayerMask rideLayer;
     void Update()
@@ -210,22 +221,6 @@ public class Player : MonoBehaviour
             {
                 Character ch = hit.transform.GetComponent<Character>();
                 Attack(ch);
-            }
-        }
-        // --- PICKUP MECHANIC ---
-        else if (isPointed && hit.transform.GetComponent<Pickup>() != null)
-        {
-            cursor.color = Color.yellow; // Показываем, что можно подобрать
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                Pickup pickup = hit.transform.GetComponent<Pickup>();
-                if (inv != null && pickup != null)
-                {
-                    int selectedSlot = inv.selectedSlot; // Используем выбранный слот
-                    inv.AddItem(pickup.item, selectedSlot);
-                    Destroy(pickup.gameObject); // Удаляем предмет из мира
-                }
             }
         }
         else if (isPointed && hit.transform.GetComponent<Character>() != null)
